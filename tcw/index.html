@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techie Crew | Digital Marketing Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #161515;
+            --secondary: #626060;
+            --dark: #706f6f;
+            --light: #7e7d7d;
+            --accent: #6a6a6a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #6a6a6a;
+            background-color: #6a6a6a59;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #464444;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: var(#6a6a6a);
+        }
+
+        .section-title p {
+            color: var(#3e3c3c);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(#646161);
+            color: rgb(98, 91, 91);
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #c18dc1;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgb(217, 4, 246);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgb(38, 243, 3);
+            transition: all 0.3s ease;
+        }
+
+        .header-scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgb(129, 248, 1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: 160px;
+            background: var(#020307);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(252, 252, 252);
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: 10px;
+            /* This is a placeholder - replace with your actual logo image */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="45" viewBox="0 0 160 45"><rect width="160" height="45" fill="%234a6cf7" rx="8"/><text x="80" y="28" font-family="Arial" font-size="18" font-weight="bold" fill="white" text-anchor="middle">LOGO HERE</text></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Instructions for replacing the logo */
+        .logo-replacement {
+            display: none;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.8);
+            color: rgb(66, 64, 64);
+            padding: 1px;
+            border-radius: 0;
+            font-size: 5px;
+            max-width: 200px;
+        }
+
+        .logo:hover .logo-replacement {
+            display: block;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: rgb(5, 7, 0);
+        }
+
+        .logo-text span {
+            color: rgb(11, 11, 11);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(#1d1c1c);
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, #0c0c0c 0%, #cfccccf8 0%);
+            position: relative;
+            overflow: hidden;
+             box-shadow: 0 15px 30px rgb(72, 143, 143);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 30px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #6a6a6a68;
+        }
+
+        .hero-text h1 span {
+            color: #6a6a6a;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: rgba(55, 55, 39, 0.989);
+            margin-bottom: 30px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(#edeaea);
+            color: var(#f0eeee);
+        }
+
+        .btn-secondary:hover {
+            background: var(#d7cfcf);
+            color: rgb(168, 37, 37);
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align:center;
+        }
+            /* Image Slider */
+.slider-container {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgb(148, 141, 146);
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, rgb(255, 255, 255));
+    color: white;
+    border-radius: 0 0 20px 20px;
+}
+
+.slide-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.slide-content p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Slider Controls */
+.slider-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.slider-dot {
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    background: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    z-index: 10;
+}
+
+.slider-nav button {
+    background: rgb(255, 255, 255);
+    border: none;
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fcfcfc;
+    font-size: 1.2rem;
+}
+
+.slider-nav button:hover {
+    background: rgb(245, 243, 243);
+    transform: scale(1.1);
+}
+
+/* Animation for slides */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.slide.active {
+    animation: slideIn 0.10s ease-out;
+}
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #f5f8ff 0%, #9f9d9d 0%);
+             box-shadow: 0 15px 30px rgb(82, 162, 167);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 70px;
+            box-shadow: 0 15px 30px rgb(248, 223, 3);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #141414;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #f8f8f8;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #060606 0%, #6a6a6a19 0%);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgb(81, 132, 143);
+            transition: all 0.3s ease;
+            text-align: center;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgb(251, 255, 1);
+        }
+
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #f5f8ff 0%, #f8f7f7 0%);;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -50px auto 20px;
+            color: var(--primary);
+            font-size: 1.8rem;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: rgb(33, 33, 33);
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.947);
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            display: inline-block;
+            color: rgb(9, 9, 9);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .service-link:hover {
+            color: var(#0c0c0c);
+            transform: translateX(5px);
+        }
+
+        /* Service Modal */
+        .service-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background:linear-gradient(135deg, #ffffff 0%, #010101 0%);
+            max-width: 800px;
+            margin: 50px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            animation: reverse 0.3s ease;
+        }
+
+        @keyframes modalFade {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            padding: 20px 30px;
+            background: var(#e5e5e5);
+            color: rgb(8, 194, 245);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: rgb(183, 19, 19);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-body p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .modal-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .feature-icon {
+            color: rgb(222, 46, 46);
+            font-size: 1.2rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .modal-footer {
+            padding: 20px 30px;
+            background:#525151;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #ffffff 0%, #989696 0%);
+            box-shadow: 0 15px 30px rgb(80, 182, 173);
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(29, 187, 211);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #0fb1e2;
+        }
+
+        .contact-details p {
+            color: #161616;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ff0202;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(#0fb1e2);
+            outline: none;
+            box-shadow: 0 0 0 3px rgb(250, 1, 1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Careers Section */
+        .careers{
+             box-shadow: 0 15px 30px rgb(82, 126, 146);
+        }
+        .careers-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .careers-content p {
+            margin-bottom: 30px;
+            color: purple;
+        }
+
+        .career-form {
+            background: linear-gradient(135deg, #ebecee 0%, #6a6a6a 0%);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(212, 230, 6, 0.884);
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .file-upload {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-upload-btn {
+            background: linear-gradient(135deg, #f5f8ff 0%, #6a6a6a 0%);;
+            border: 2px dashed #f50707;
+            color: var(--primary);
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(135, 207, 235, 0.24);
+            color: rgb(58, 10, 231);
+            padding: 70px 0 20px;
+            box-shadow: 0 15px 30px rgb(234, 73, 4);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: rgb(0, 0, 0);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #1945d6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(219, 8, 8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: blueviolet;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 3px solid rgba(255, 255, 255, 0.99);
+            color: #ff0000;
+            font-size: 1rem;
+        }
+
+        /* Logo Replacement Instructions */
+        .logo-instructions {
+            background: #ec600f;
+            border-left: 4px solid var(--primary);
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .logo-instructions h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .logo-instructions code {
+            background: #e9ecef;
+            padding: 1px 4px;
+            border-radius: 2px;
+            font-family: monospace;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content,
+            .about-content,
+            .contact-content {
+                flex-direction: column;
+            }
+
+            .hero-text,
+            .about-text,
+            .contact-info,
+            .contact-form {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background:(199, 31, 31);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: all 0.5s ease;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .modal-content {
+                margin: 20px auto;
+            }
+            
+            .modal-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-btns {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .logo-img {
+                height: 50px;
+                width: auto;
+                max-width: 10px;
+                border-radius: 10px;
+                margin-right: 10px;
+            }
+            /* Instructions for replacing the logo */
+            .logo-replacement {
+                display: none;
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                background: rgba(169, 163, 163, 0.97);
+                color: rgb(13, 13, 13);
+                padding: 1px;
+                border-radius: 0;
+                font-size: 5px;
+                max-width: 200px;
+            }   
+
+            .logo:hover .logo-replacement {
+            display: block;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .modal-header {
+                padding: 15px 20px;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+               <a href="#" class="logo">
+    <img src="images/logo1.jpg" class="logo-img" alt="Techie Crew Logo">
+    <div class="logo-text">Techie <span>Crew</span></div>
+</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#careers">Career</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+   
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+            <div class="hero-image">
+               <div class="slider-container">
+        <div class="slider">
+            <!-- Slide 1 -->
+            <div class="slide active">
+                <img src="images/logo.jpg" alt="Business Growth">
+                <div class="slide-content">
+                    <h></h3>
+                    <p></p>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img src="images/1.jpg" alt="Digital Transformation">
+                <div class="slide-content">
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img src="images/2.jpg" alt="Marketing Strategy">
+                <div class="slide-content">
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+            
+            <!-- Slide 4 -->
+            <div class="slide">
+                <img src="images/3.jpg" alt="Team Development">
+                <div class="slide-content">
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+            <!-- Slide 5 -->
+            <div class="slide">
+                <img src="images/4.jpg" alt="Team Development">
+                <div class="slide-content">
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slider Navigation -->
+        <div class="slider-nav">
+            <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+        <!-- Slider Dots -->
+        <div class="slider-controls">
+            <div class="slider-dot active" data-slide="0"></div>
+            <div class="slider-dot" data-slide="1"></div>
+            <div class="slider-dot" data-slide="2"></div>
+            <div class="slider-dot" data-slide="3"></div>
+        </div>
+    </div>
+</div>
+                <div class="hero-text">
+                    <h1>Transform Your <span>Businesses to Grow Smarter</span> With Our Expert Solutions</h1>
+                    <p>We at TECHIE CREW are a results-oriented business consulting group committed to assisting companies in achieving operational excellence and sustainable growth.  Working with startups, SMEs, and major corporations, our team of seasoned consultants develops customized strategies that boost productivity, create new opportunities, and drive performance.</p>
+                    <div class="hero-btns">
+                        <a href="#services" class="btn">Our Services</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p></p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/about.png" alt="Our Team">
+                </div>
+                <div class="about-text">
+                    <h3>We Create Digital Experiences </h3>
+                    <p>From financial planning and corporate strategy to market research, digital transformation, and organizational development, we offer comprehensive consulting services tailored to your particular requirements.</p>
+                    <p> We think that data-driven insights, creative problem-solving, and practical assistance may help you overcome obstacles, grab opportunities, and maintain your competitive edge in a market that is changing quickly.</p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We believe in data-driven insights, innovative thinking, and hands-on support to help you navigate challenges, seize opportunities, and stay ahead in a rapidly changing marketplace.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Business Strategy Service -->
+                <div class="service-card" data-service="business-strategy">
+                    <div class="service-image">
+                        <img src="images/business.jpg" alt="Business Strategy">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-chess-knight"></i>
+                        </div>
+                        <h3>Business Strategy & Planning</h3>
+                        <p></p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Digital Marketing Service -->
+                <div class="service-card" data-service="digital-marketing">
+                    <div class="service-image">
+                        <img src="images/digital.jpg" alt="Digital Marketing">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-ad"></i>
+                        </div>
+                        <h3>Digital Marketing</h3>
+                        <p></p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Marketing & Brand Development Service -->
+                <div class="service-card" data-service="marketing-brand">
+                    <div class="service-image">
+                        <img src="images/marketing.jpg" alt="Marketing & Brand Development">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <h3>Marketing & Brand Development</h3>
+                        <p></p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Content Creation Service -->
+                <div class="service-card" data-service="WEBSITE DEVELOPMENT">
+                    <div class="service-image">
+                        <img src="images/content creation.jpg" alt="WEBSITE DEVELOPMENT">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-pencil-alt"></i>
+                        </div>
+                        <h3>WEBSITE DEVELOPMENT</h3>
+                        <p></p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Social Media Marketing Service -->
+                <div class="service-card" data-service="social-media">
+                    <div class="service-image">
+                        <img src="images/social.jpg" alt="Social Media Marketing">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Financial & operational consulting</h3>
+                        <p></p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Web Design & Development Service -->
+                <div class="service-card" data-service="web-design">
+                    <div class="service-image">
+                        <img src="images/website.jpg" alt="Web Design & Development">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>process optimization & changing Management</h3>
+                        <p></p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Customer Service -->
+                <div class="service-card" data-service="customer-service">
+                    <div class="service-image">
+                        <img src="images/CUSTOMER.jpg" alt="Customer Service">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Customer Service & inhouse sales</h3>
+                        <p></p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Sales & Marketing Service -->
+                <div class="service-card" data-service="sales-marketing">
+                    <div class="service-image">
+                        <img src="images/sales.jpg" alt="Sales & Marketing">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Digital Transformation & innovation</h3>
+                        <p></p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Video Shoot & Editing Service -->
+                <div class="service-card" data-service="video-editing">
+                    <div class="service-image">
+                        <img src="images/video.jpg" alt="Video Shoot & Editing">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                           <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Leadership & team Development</h3>
+                        <p></p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Modal -->
+    <div class="service-modal" id="serviceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Service Title</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="Service Image">
+                </div>
+                <p id="modalDescription">Service description will appear here.</p>
+                <div class="modal-features" id="modalFeatures">
+                    <!-- Features will be dynamically added here -->
+                </div>
+                <p id="modalAdditional">Additional information about the service.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#contact" class="btn">Get This Service</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us to discuss how we can help grow your business.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Our Office</h4>
+                            <p>Parvathipuram,Nagercoil</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone Number</h4>
+                            <p>+91 9500493972</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Address</h4>
+                            <p>vptechiecrew@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Working Hours</h4>
+                            <p>Monday - Saturday: 10:00 AM - 7:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers Section -->
+    <section class="careers" id="careers">
+        <div class="container">
+            <div class="section-title">
+                <h2>Careers</h2>
+                <p>Join our team of digital marketing experts and help shape the future of online business.</p>
+            </div>
+            <div class="careers-content">
+                <p>At Techie Crew, we're always looking for talented individuals who are passionate about digital marketing and eager to make an impact. We offer a collaborative environment and opportunities for growth.</p>
+                
+                <form id="careerForm" action="submit_career.php" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <input type="text" class="form-control" name="full_name" placeholder="Full Name" required>
+    </div>
+    <div class="form-group">
+        <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+    </div>
+    <div class="form-group">
+        <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required>
+    </div>
+    <div class="form-group">
+        <select class="form-control" name="position" required>
+            <option value="" disabled selected>Select Position</option>
+            <option value="seo-specialist">SEO Specialist</option>
+            <option value="content-writer">Content Writer</option>
+            <option value="social-media-manager">Social Media Manager</option>
+            <option value="ppc-specialist">PPC Specialist</option>
+            <option value="web-developer">Web Developer</option>
+            <option value="graphic-designer">Graphic Designer</option>
+            <option value="business-strategist">Business Strategist</option>
+            <option value="sales-optimizer">Sales Optimizer</option>
+            <option value="leadership-coach">Leadership Coach</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <div class="file-upload">
+            <label class="file-upload-btn">
+                <i class="fas fa-cloud-upload-alt"></i> Upload Resume (PDF, DOC, DOCX)
+                <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" name="cover_letter" placeholder="Cover Letter" rows="4"></textarea>
+    </div>
+    <button type="submit" class="btn" style="width: 100%;">Submit Application</button>
+</form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Techie Crew</h3>
+                    <p>We help businesses grow through innovative digital marketing strategies and Businesses to Grow Smarter</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/techiecrew" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/techiecrew" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/techie.crew?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/company/techiecrew" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">SEO Optimization</a></li>
+                        <li><a href="#">PPC Advertising</a></li>
+                        <li><a href="#">Social Media Marketing</a></li>
+                        <li><a href="#">Content Marketing</a></li>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Business Strategy</a></li>
+                        <li><a href="#">Sales Optimization</a></li>
+                        <li><a href="#">Leadership</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for the latest updates and marketing tips.</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                        </div>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Techie Crew. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+         // Image Slider Functionality
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.slider-dot');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+let currentSlide = 0;
+let slideInterval;
+
+// Function to show a specific slide
+function showSlide(n) {
+    // Remove active class from all slides and dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Calculate the correct slide index
+    currentSlide = (n + slides.length) % slides.length;
+    
+    // Add active class to current slide and dot
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+// Function to show next slide
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+// Function to show previous slide
+function prevSlide() {
+    showSlide(currentSlide - 1);
+}
+
+// Start autoplay
+function startAutoPlay() {
+    slideInterval = setInterval(nextSlide, 5000);
+}
+
+// Stop autoplay
+function stopAutoPlay() {
+    clearInterval(slideInterval);
+}
+
+// Event listeners for navigation buttons
+nextBtn.addEventListener('click', () => {
+    nextSlide();
+    stopAutoPlay();
+    startAutoPlay();
+});
+
+prevBtn.addEventListener('click', () => {
+    prevSlide();
+    stopAutoPlay();
+    startAutoPlay();
+});
+
+// Event listeners for dots
+dots.forEach(dot => {
+    dot.addEventListener('click', function() {
+        const slideIndex = parseInt(this.getAttribute('data-slide'));
+        showSlide(slideIndex);
+        stopAutoPlay();
+        startAutoPlay();
+    });
+});
+
+// Pause autoplay when hovering over slider
+const sliderContainer = document.querySelector('.slider-container');
+if (sliderContainer) {
+    sliderContainer.addEventListener('mouseenter', stopAutoPlay);
+    sliderContainer.addEventListener('mouseleave', startAutoPlay);
+}
+
+// Initialize the slider
+if (slides.length > 0) {
+    showSlide(currentSlide);
+    startAutoPlay();
+}
+
+
+       // Form submission
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you for your message! We will get back to you soon.');
+    this.reset();
+});
+
+// Career form submission
+document.getElementById('careerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you for your application! We will review it and get back to you soon.');
+    this.reset();
+});
+
+        // File upload display
+        document.querySelectorAll('input[type="file"]').forEach(input => {
+            input.addEventListener('change', function() {
+                const fileName = this.files[0] ? this.files[0].name : 'No file chosen';
+                this.previousElementSibling.innerHTML = `<i class="fas fa-cloud-upload-alt"></i> ${fileName}`;
+            });
+        });
+
+        // Service Modal Functionality
+        const serviceModal = document.getElementById('serviceModal');
+        const closeModal = document.getElementById('closeModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalImage = document.getElementById('modalImage');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalFeatures = document.getElementById('modalFeatures');
+        const modalAdditional = document.getElementById('modalAdditional');
+
+        // Service data
+        const servicesData = {
+            'business-strategy': {
+                title: 'Business Strategy & Planning',
+                image: 'images/business.jpg',
+                description: 'To achieve sustainable growth and long-term success, we assist you in establishing distinct objectives, evaluating your market position, and formulating actionable strategies.',
+                features: [
+                    
+                ],
+                additional: ''
+            },
+            'digital-marketing': {
+                title: 'Digital Marketing',
+                image: 'images/digital.jpg',
+                description: 'TECHIE CREW uses data-driven digital marketing tactics to assist businesses improve their online presence and reach their target audience.  We use creativity, analytics, and technology to improve performance on search, social, and digital platforms.',
+                features: [
+                    'SOCIAL MEDIA MANAGEMENT',
+                    'CONTENT CREATION',
+                    'CUSTOMER SERVICE',
+                    'VIDEO SHOOTS & EDITING'
+                ],
+                additional: ''
+            },
+            'marketing-brand': {
+                title: 'Marketing & Brand Development',
+                image: 'images/marketing.jpg',
+                description: 'Improve your market presence by implementing customized marketing strategies, brand positioning, and digital engagement solutions that increase visibility and sales.',
+                features: [
+                    
+                ],
+                additional: ''
+            },
+            'WEBSITE DEVELOPMENT': {
+                title: 'WEBSITE DEVELOPMENT',
+                image: 'images/content creation.jpg',
+                description: 'At TECHIE CREW we specialize in creating custom websites designed to elevate your business and attract more clients. Our team combines strategic business insights with modern web design to deliver sites that not only look stunning but also drive results.',
+                features: [
+                     	'Custom website design and development',
+                    	'Business-focused UX/UI design',
+                        'SEO optimization for better visibility',
+                        'Mobile-friendly and responsive layouts',
+	                    'Integration with CRM and business tools',
+	                    'Ongoing maintenance and support',
+
+                ],
+                additional: ''
+            },
+            'social-media': {
+                title: 'Financial & Operational consulting',
+                image: 'images/social.jpg',
+                description: 'Enhance your financial performance and streamline operations by leveraging data-driven insights, process improvement, and cost management.',
+                features: [
+                    
+                ],
+                additional: ''
+            },
+            'web-design': {
+                title: 'process optimization & changing Management',
+                image: 'images/website.jpg',
+                description: 'We Analyze Existing Workflows, Identify Inefficiencies, and Implement Effective Changes to Boost Productivity and Adaptability Within Your Organization.',
+                features: [
+                   
+                ],
+                additional: ''
+            },
+            'customer-service': {
+                title: 'Customer Service & inhouse sales',
+                image: 'images/CUSTOMER.jpg',
+                description: 'At TECHIE CREW, we believe that exceptional service leads to long-term success.  Our Customer Service and In-House Sales consulting services prioritize knowing your clients needs and developing solutions that create trust, loyalty, and repeat business',
+                features: [
+                    
+                ],
+                additional: ''
+            },
+            'sales-marketing': {
+                title: 'digital transformation & innovation',
+                image: 'images/sales.jpg',
+                description: 'By incorporating digital tools and technologies that update your business processes and enhance consumer experiences, you can stay ahead of the curve.',
+                features: [
+                    
+                ],
+                additional: ''
+            },
+            'video-editing': {
+                title: 'leadership & team development',
+                image: 'images/video.jpg',
+                description: 'Create strong leadership and cohesive teams with personalized training programs, performance coaching, and organizational culture development.',
+                features: [
+                    
+                ],
+                additional: ''
+            }
+        };
+
+        // Add click event to service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const serviceId = this.getAttribute('data-service');
+                const serviceData = servicesData[serviceId];
+                
+                if (serviceData) {
+                    modalTitle.textContent = serviceData.title;
+                    modalImage.src = serviceData.image;
+                    modalImage.alt = serviceData.title;
+                    modalDescription.textContent = serviceData.description;
+                    modalAdditional.textContent = serviceData.additional;
+                    
+                    // Clear previous features
+                    modalFeatures.innerHTML = '';
+                    
+                    // Add new features
+                    serviceData.features.forEach(feature => {
+                        const featureItem = document.createElement('div');
+                        featureItem.className = 'feature-item';
+                        featureItem.innerHTML = `
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">${feature}</div>
+                        `;
+                        modalFeatures.appendChild(featureItem);
+                    });
+                    
+                    // Show modal
+                    serviceModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close modal
+        closeModal.addEventListener('click', function() {
+            serviceModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        serviceModal.addEventListener('click', function(e) {
+            if (e.target === serviceModal) {
+                serviceModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && serviceModal.style.display === 'block') {
+                serviceModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
